@@ -29,7 +29,7 @@ def is_partially_inside_wafer(llc_x, llc_y, die_size_x, die_size_y, wafer_diamet
     ]
 
     for corner_x, corner_y in corners:
-        if math.sqrt(corner_x**2 + corner_y**2) <= wafer_diameter / 2:
+        if math.sqrt(corner_x**2 + corner_y**2) < wafer_diameter / 2:
             return True
 
     return False
@@ -58,8 +58,8 @@ def write_output(output_lines, output_file_path):
         file.write('\n'.join(output_lines))
 
 if __name__ == '__main__':
-    input_file_path = 'Milestone2/Input/Testcase4.txt'
-    output_file_path = 'Milestone2/Output/tc4output.txt'  # Specify the desired output file path
+    input_file_path = 'Milestone2/Input/Testcase1.txt'
+    output_file_path = 'Milestone2/Output/tc1output.txt'  # Specify the desired output file path
 
     # Parse input parameters
     wafer_diameter, die_size_x, die_size_y, die_shift_x, die_shift_y, wafer_center_x, wafer_center_y = parse_input(input_file_path)
